@@ -1,9 +1,12 @@
 // Get visitor IP and send to Discord Webhook
-document.addEventListener("DOMContentLoaded", function() {
-  fetch('https://api.ipify.org?format=json')    .then(response => {
-      if (!response.ok) throw new Error('Failed to get IP');      return response.json();    })    .then(data => {
-      const ip = data.ip;
-      const webhookURL = 'https://discord.com/api/webhooks/1373867976188756008/YsV-h95KrYtgAjJi2bZst4qzbcaTTZ57JZYESO3uPFVd-sivSXBJSYSJX1xyFhMzqtMg';
+const express = require('express');const app = express();const webhooks = require('express-webhook');const Discord = require('discord.js');const { Client} = Discord;
 
-      const payload = {
-        content:`🌐 New visitor\n**IP**: ||${ip}||\n**Page**:${window.
+// Initialize Discord client
+const client = new Client();const webhookURL = 'https://discord.com/api/webhooks/1373867976188756008/YsV-h95KrYtgAjJi2bZst4qzbcaTTZ57JZYESO3uPFVd-sivSXBJSYSJX1xyFhMzqtMg';
+
+// Set up webhook listener
+client.on('ready', () => {
+  console.log('Discord bot ready');  client.webhooks.create({
+    name: 'IP Logger',
+    avatar: 'https://example.com/ip_logger_avatar.png',}, webhookURL);});// Set up Express.js server
+app.
