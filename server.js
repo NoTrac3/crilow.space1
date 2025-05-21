@@ -1,11 +1,27 @@
-const express = require('express');const app = express();const webhooks = require('express-webhook');const Discord = require('discord.js');const { Client} = Discord;
+const express = require('express');
+const { WebhookClient } = require('discord.js');
 
-// Initialize Discord client
-const client = new Client();const webhookURL = 'https://discord.com/api/webhooks/1373867976188756008/YsV-h95KrYtgAjJi2bZst4qzbcaTTZ57JZYESO3uPFVd-sivSXBJSYSJX1xyFhMzqtMg';
+const app = express();
+const PORT = 3000;
 
-// Set up webhook listener
-client.on('ready', () => {
-  console.log('Discord bot ready');  client.webhooks.create({
-    name: 'IP Logger',
-    avatar: 'https://example.com/ip_logger_avatar.png',}, webhookURL);});// Middleware to get client IP
-app.
+// Replace this with your actual webhook URL — only with proper authorization.
+const webhookClient = new WebhookClient({
+  url: 'https://discord.com/api/webhooks/your_webhook_id/your_webhook_token',
+});
+
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+  
+  // Only log IPs if explicitly authorized for red team or testing purpose
+  webhookClient.send({
+    content: `🔍 Request received from IP: ${ip}`,
+  }).catch(console.error);
+
+  res.send('Hello! Your request was received.');
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
