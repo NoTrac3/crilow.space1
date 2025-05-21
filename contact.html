@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact | Crimson Hollow</title>
+  <script src="cyber-bg.js" defer></script>
+  <script src="snow.js" defer></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      background-color: #0a0a0a;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23ff3c3c" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="5" fill="%23ff3c3c"/></svg>') 12 12, auto;
+      border-left: 2px solid #ff3c3c;
+      border-right: 2px solid #ff3c3c;
+      overflow-x: hidden;
+    }
+
+    .full-width {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-weight: bold;
+      font-size: 18px;
+      border-bottom: 2px solid #ff3c3c;
+      backdrop-filter: blur(5px);
+    }
+
+    nav a {
+      color: #ff3c3c;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 5px #ff3c3c;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #ff3c3c;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff3c3c;
+      margin: 40px 0 30px;
+      font-size: 2.8em;
+      text-shadow: 0 0 10px #ff3c3c;
+      animation: glitch 500ms infinite;
+    }
+
+    .profiles-container {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 60px;
+    }
+
+    .profile-card {
+      flex: 1;
+      min-width: 300px;
+      max-width: calc(50% - 15px);
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .angel-logo,
+    .ruin-logo {
+      max-width: 150px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .angel-logo {
+      border: 2px solid #a855f7;
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.7);
+    }
+
+    .ruin-logo {
+      border: 2px solid #4287f5;
+      box-shadow: 0 0 12px rgba(66, 135, 245, 0.7);
+    }
+
+    .ruin-logo:hover,
+    .angel-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-text-purple,
+    .profile-text-blue {
+      flex: 1;
+      font-size: 1em;
+      line-height: 1.5;
+      padding: 20px;
+      border-radius: 10px;
+      background: rgba(42, 42, 42, 0.7);
+      backdrop-filter: blur(5px);
+    }
+
+    .profile-text-purple {
+      border: 2px solid #a855f7;
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+    }
+
+    .profile-text-blue {
+      border: 2px solid #4287f5;
+      box-shadow: 0 0 12px rgba(66, 135, 245, 0.5);
+    }
+
+    .profile-text-purple h2 {
+      color: #a855f7;
+    }
+
+    .profile-text-blue h2 {
+      color: #4287f5;
+    }
+
+    .socials {
+      margin: 40px auto;
+      padding: 20px;
+      border: 2px solid #ff3c3c;
+      border-radius: 12px;
+      background: rgba(20, 20, 20, 0.8);
+      box-shadow: 0 0 12px rgba(255, 60, 60, 0.5);
+      color: #ff3c3c;
+      font-size: 1.1em;
+      backdrop-filter: blur(5px);
+    }
+
+    .socials h3 {
+      margin-bottom: 15px;
+      font-size: 1.5em;
+      text-align: center;
+    }
+
+    .socials ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .socials li {
+      margin: 8px 0;
+    }
+
+    .monero {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(26, 26, 26, 0.7);
+      border: 2px solid #ff3c3c;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 60, 60, 0.5);
+      font-family: monospace;
+      color: #ff3c3c;
+      text-align: center;
+      word-break: break-all;
+      backdrop-filter: blur(5px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background: rgba(0, 0, 0, 0.8);
+      border-top: 1px solid #ff3c3c;
+      color: #ff3c3c;
+      margin-top: 60px;
+      backdrop-filter: blur(5px);
+      text-shadow: 0 0 5px #ff3c3c;
+    }
+
+    @keyframes glitch {
+      0%, 14% { text-shadow: 0.05em 0 0 #ff3c3c, -0.05em -0.025em 0 #00f, -0.025em 0.05em 0 #0f0; }
+      15%, 49% { text-shadow: -0.05em -0.025em 0 #ff3c3c, 0.025em 0.025em 0 #00f, -0.05em -0.05em 0 #0f0; }
+      50%, 99% { text-shadow: 0.025em 0.05em 0 #ff3c3c, 0.05em 0 0 #00f, 0 -0.05em 0 #0f0; }
+      100% { text-shadow: -0.025em 0 0 #ff3c3c, -0.025em -0.025em 0 #00f, -0.025em -0.05em 0 #0f0; }
+    }
+
+    .glitch-effect {
+      animation: glitch 500ms infinite;
+    }
+
+    .glitch-effect:hover {
+      animation: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .profiles-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+      .profile-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .angel-logo,
+      .ruin-logo {
+        max-width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="full-width">
+    <nav>
+      <a href="index.html" class="glitch-effect">Home</a>
+      <a href="contact.html" class="glitch-effect">Contact</a>
+      <a href="partners.html" class="glitch-effect">Wintergate</a>
+      <a href="bots.html" class="glitch-effect">Bots</a>
+      <a href="services.html" class="glitch-effect">Services</a>
+    </nav>
+  </div>
+
+  <main>
+    <h1 class="glitch-effect">Contact Us</h1>
+
+    <div class="profiles-container">
+      <!-- Δπɢεl -->
+      <div class="profile-card">
+        <img src="https://media.discordapp.net/attachments/1372717966801768632/1373897183639769170/pfp__2_-removebg-preview.png?ex=682e0f36&is=682cbdb6&hm=f3a28930d582f55d16f93aed580d2a38555be0b129684f94e93e4391042ab1bb&=&format=webp&quality=lossless" alt="Δπɢεl" class="angel-logo" />
+        <div class="profile-text-purple">
+          <h2>Δπɢεl</h2>
+          <p>Founder of Crimson Hollow and Digital investigator with 2 years in malware development and 4 years of graphic design. Backed by 1+ years in OSINT and OPSEC, she’s led multiple predator takedown cases and private investigations. Still learning, still building — blending creativity, code, and real-world impact.</p>
+          <ul>
+            <li>OSINT techniques</li>
+            <li>Dark web infiltration</li>
+            <li>Cyber predator tracking</li>
+            <li>Digital private investigations</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- m77u1n -->
+      <div class="profile-card">
+        <img src="https://images-ext-1.discordapp.net/external/VKYeOv-mF-l2EqetUjm-L4tcPKkmnnvL64NzQdLTdeQ/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1330967354191904841/192919a782147cc9c72251f305af0882.png" alt="Mr. Ruin" class="ruin-logo" />
+        <div class="profile-text-blue">
+          <h2>m77u1n (Mr. Ruin)</h2>
+          <p>Co-Founder of Crimson Hollow, a cultural hacker and master of anonymity, Mr. Ruin is a digital ghost with over 6 years in deep information gathering, social engineering, and OSINT/OPSEC mastery. Known for creating Ominis-OSINT, he has breached databases, defaced websites, and authored custom tools for digital warfare. Proficient in brute forcing, DDoS operations, and stealthy web exploits, he separates identity from action, leaving no trace. One life offline, one purpose online.</p>
+          <p>
+		  <p>
+            <li>7 years in information gathering</li>
+            <li>Advanced osint and opsec</li>
+            <li>website defacing</li>
+            <li>Cyber warfare tactics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="socials">
+      <h3 class="glitch-effect">Contacts</h3>
+      <ul>
+        <li><strong>Δπɢεl's Discord:</strong> fvckth3w0r1d969</li>
+        <li><strong>Δπɢεl's Twitter:</strong> @deathbed365590</li>
+		<p>
+        <li><strong>Mr. Ruin's Discord:</strong> m77u1n</li>
+        <li><strong>Mr. Ruin's Instagram:</strong> @no.trac3</li>
+        <li><strong>Secure Comms:</strong> Available to verified operatives</li>
+      </ul>
+    </div>
+
+    <div class="monero">
+      <h3 class="glitch-effect">Support Our Operations</h3>
+      <p>Your donations directly fund our cybersecurity tools, victim protection programs, and threat research.</p>
+      <p>We accept Bitcoin:</p>
+      <p><code>bc1qcv9gvp4yaj9ackeeercldt6fvk9409t88fr7g9</code></p>
+    </div>
+  </main>
+
+  <div class="full-width">
+    <footer>
+      <p>© 2025 Crimson Hollow — All Rights Reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

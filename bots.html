@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crimson Hollow | Discord Bots</title>
+  <script src="cyber-bg.js" defer></script>
+  <script src="snow.js" defer></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      background-color: #0a0a0a;
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23ff3c3c" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="5" fill="%23ff3c3c"/></svg>') 12 12, auto;
+      border-left: 2px solid #ff3c3c;
+      border-right: 2px solid #ff3c3c;
+      overflow-x: hidden;
+    }
+
+    .full-width {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-weight: bold;
+      font-size: 18px;
+      border-bottom: 2px solid #ff3c3c;
+      backdrop-filter: blur(5px);
+    }
+
+    nav a {
+      color: #ff3c3c;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 5px #ff3c3c;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #ff3c3c;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      background: rgba(42, 42, 42, 0.7);
+      border: 2px solid #ff3c3c;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 20px rgba(255, 60, 60, 0.5);
+      backdrop-filter: blur(5px);
+    }
+
+    .intro h1 {
+      color: #ff3c3c;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #ff3c3c;
+    }
+
+    .bot-card {
+      background: rgba(42, 42, 42, 0.7);
+      border: 2px solid;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 15px rgba(255, 60, 60, 0.5);
+      backdrop-filter: blur(5px);
+    }
+
+    .bluecord {
+      border-color: #4287f5;
+    }
+
+    .asphalt {
+      border-color: #1a1a1a;
+    }
+
+    .blackout {
+      border-color: #000000;
+    }
+
+    .bot-card h2 {
+      color: #ff3c3c;
+      margin-top: 0;
+      margin-bottom: 15px;
+      text-shadow: 0 0 5px #ff3c3c;
+    }
+
+    .bot-card p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .bot-card .features {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .bot-card .features li {
+      margin-bottom: 8px;
+    }
+
+    .invite-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ff3c3c;
+      color: #000;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 60, 60, 0.7);
+      margin-top: 10px;
+    }
+
+    .invite-btn:hover {
+      background-color: #fff;
+      color: #ff3c3c;
+      box-shadow: 0 0 15px rgba(255, 60, 60, 0.9);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background: rgba(0, 0, 0, 0.8);
+      border-top: 1px solid #ff3c3c;
+      color: #ff3c3c;
+      margin-top: 40px;
+      backdrop-filter: blur(5px);
+      text-shadow: 0 0 5px #ff3c3c;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      
+      .container {
+        margin: 20px auto;
+      }
+      
+      .intro, .bot-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="full-width">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="partners.html">Partners</a>
+	  <a href="bots.html">Bots</a>
+      <a href="services.html">Services</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="container">
+  <div class="intro">
+    <h1>Crimson Hollow Bot Development</h1>
+    <p>We engineer high-performance Discord bots with military-grade security protocols. Our bots are deployed in hundreds of communities, offering everything from advanced moderation to vigilante network coordination. Each bot is maintained by our cybersecurity specialists with regular threat intelligence updates. <a href="terms.html" style="color: #ff3c3c; text-decoration: underline;">Terms of Service</a> | <a href="privacy.html" style="color: #ff3c3c; text-decoration: underline;">Privacy Policy</a></p>
+  </div>
+
+    <!-- BlueCord -->
+    <div class="bot-card bluecord">
+      <h2>BlueCord</h2>
+      <p>The ultimate anti-nuke and moderation system for Discord communities. BlueCord provides 24/7 server protection with real-time threat detection and automated countermeasures.</p>
+      
+      <ul class="features">
+        <li><strong>Advanced Protection:</strong> Instant detection and mitigation of raid/nuke attempts</li>
+        <li><strong>Moderation Suite:</strong> Warn/mute/ban/kick with detailed logging</li>
+        <li><strong>Automation:</strong> Autoroles, reaction roles, bump reminders</li>
+        <li><strong>Community Tools:</strong> Leveling system, welcome/goodbye messages</li>
+        <li><strong>Crisis Response:</strong> Server lockdown and mass purge capabilities</li>
+      </ul>
+      
+      <p><strong>Command Prefix:</strong> <code>^cmd</code></p>
+      <a href="https://discord.com/oauth2/authorize?client_id=1372298445443829780" class="invite-btn">Invite BlueCord</a>
+    </div>
+
+    <!-- Asphalt -->
+    <div class="bot-card asphalt">
+      <h2>Asphalt</h2>
+      <p>Our high-security nuke bot available only to vetted operators. Asphalt executes precision strikes against malicious targets with forensic tracking.</p>
+      
+      <ul class="features">
+        <li>Restricted access - contact us directly for authorization</li>
+        <li>Digital forensics embedded in all operations</li>
+        <li>Counter-nuke capabilities against attacker infrastructure</li>
+        <li>Automated threat intelligence reporting</li>
+      </ul>
+      
+      <p><em>This bot is only available to verified Crimson Hollow operatives after security clearance.</em></p>
+    </div>
+
+    <!-- Blackout -->
+    <div class="bot-card blackout">
+      <h2>Blackout</h2>
+      <p>The vigilante network coordination system. Blackout connects security-focused communities and enables cross-server threat reporting.</p>
+      
+      <ul class="features">
+        <li><strong>Centralized Reporting:</strong> Users can report malicious actors/servers directly to our secure storage</li>
+        <li><strong>Network Alerts:</strong> Broadcast warnings across all partnered servers</li>
+        <li><strong>Evidence Archiving:</strong> Automatic screenshot and log preservation</li>
+        <li><strong>Community Shield:</strong> Shared ban lists and threat databases</li>
+      </ul>
+      
+      <p><strong>Command Prefix:</strong> <code>$cmd</code></p>
+      <a href="https://discord.com/oauth2/authorize?client_id=1356467044262088766" class="invite-btn">Invite Blackout</a>
+    </div>
+
+    <!-- Coming Soon -->
+    <div class="bot-card">
+      <h2>Fun Bot (SkidMark) Coming Soon</h2>
+       </p>
+	   </p>
+      <p>Expected release: June 15th 2025</p>
+    </div>
+  </div>
+
+  <div class="full-width">
+    <footer>
+      <p>Copyright © 2025 Crimson Hollow - All Rights Reserved. | All bots developed with ethical security protocols</p>
+    </footer>
+  </div>
+</body>
+</html>
